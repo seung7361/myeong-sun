@@ -2,17 +2,10 @@
 
 import React, { useState } from 'react'
 import DropdownMenu from './DropdownMenu';
+import { DropdownMenuProps, SearchbarProps } from '@/interfaces';
 
-interface DropdownMenuProps {
-    label: string;
-    options: string[];
-};
-
-const Searchbar = () => {
+const Searchbar = ({ onSearchChange, searchValue }: SearchbarProps) => {
     const [search, setSearch] = useState('');
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setSearch(e.target.value);
-    };
 
     const dropdownMenus: DropdownMenuProps[] = [
         {
@@ -52,7 +45,7 @@ const Searchbar = () => {
             {/* Search input */}
             <div className='flex items-center justify-center h-12 bg-white rounded-lg shadow-lg'>
                 <input className='w-4/5 h-10 pl-5 pr-5 rounded-l-lg outline-none' placeholder='검색어를 입력하세요.'
-                onChange={handleInputChange} />
+                onChange={onSearchChange} />
                 <button className='w-1/5 h-fit bg-sky-400 rounded-lg text-white font-medium'>검색</button>
             </div>
 

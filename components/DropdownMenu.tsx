@@ -1,9 +1,5 @@
 import React from 'react';
-
-interface DropdownMenuProps {
-    label: string;
-    options: string[];
-}
+import { DropdownMenuProps } from '@/interfaces';
 
 const DropdownMenu = ({label, options}: DropdownMenuProps) => {
     return (
